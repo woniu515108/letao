@@ -1,0 +1,41 @@
+// 定义变量与值
+$whiteColor:#fff;
+$orangeColor:#f30;
+$blueColor:#069;
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    body{
+        background: #fff;
+    }
+    ul,li{
+        list-style: none;
+    }
+    a{
+        color: #333;
+        text-decoration: none;
+    }
+}
+.y_header{
+    background: $blueColor;
+    color: $whiteColor;
+    
+     h1{
+        color: $whiteColor;
+    }
+    .y_bar_icon{
+        color: $whiteColor;
+    }
+}
+.footer{
+    background: $blueColor;
+    span{
+        color: $whiteColor;
+    }
+    .mui-active{
+        span{
+            color: $orangeColor;
+        }
+    }
+}

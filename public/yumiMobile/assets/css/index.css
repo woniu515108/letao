@@ -1,0 +1,80 @@
+.pd10 {
+  padding: 10px; }
+
+.y_header {
+  background: #006699;
+  color: #fff; }
+  .y_header h1 {
+    color: #fff; }
+  .y_header .y_bar_icon {
+    color: #fff; }
+
+.y_mui_slider {
+  margin-top: 44px; }
+
+.container {
+  margin-bottom: 50px; }
+
+.y_nav_list ul {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap; }
+  .y_nav_list ul li {
+    width: 33%; }
+    .y_nav_list ul li img {
+      width: 100%; }
+
+.brand .title {
+  width: 100%; }
+  .brand .title img {
+    width: 100%; }
+
+.brand ul {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap; }
+  .brand ul li {
+    width: 25%; }
+    .brand ul li a img {
+      width: 100%; }
+
+.lift .title {
+  width: 100%; }
+  .lift .title img {
+    width: 100%; }
+
+.lift ul {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap; }
+  .lift ul li {
+    width: 49%;
+    box-shadow: 0 0 5px #ccc;
+    padding: 10px;
+    margin-bottom: 5px; }
+    .lift ul li a img {
+      width: 100%; }
+    .lift ul li .details {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      line-clamp: 2; }
+    .lift ul li .price {
+      text-align: center; }
+      .lift ul li .price span:nth-child(1) {
+        color: #f30;
+        margin-right: 10px; }
+      .lift ul li .price span:nth-child(2) {
+        text-decoration: line-through; }
+    .lift ul li .buy {
+      display: block;
+      width: 82px;
+      padding: 5px 10px;
+      border-radius: 15px;
+      background: #069;
+      margin: 0 auto;
+      color: #fff;
+      text-align: center;
+      font-size: 12px; }

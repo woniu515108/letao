@@ -146,5 +146,7 @@ router.get("/vCodeForUpdatePassword", function (req, res) {
   var code = createCode();
   req.session.vCodePassword = code;
   res.send({ "vCode": code });
+  console.log("验证码11111111111111111111111");
+  console.log(code);
 });
 module.exports = router;

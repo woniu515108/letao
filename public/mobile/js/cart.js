@@ -30,6 +30,7 @@ $(function(){
             }
         }
     });
+    
     $('body').on('tap','.mui-btn-red',function() {
         var li = this.parentNode.parentNode;
         var $this = $(this);
@@ -50,7 +51,7 @@ $(function(){
     }).on('tap','.mui-btn-blue', function(e) {
         //修复iOS 8.x平台存在的bug，使用plus.nativeUI.prompt会造成输入法闪一下又没了
         e.detail.gesture.preventDefault();
-
+        
         var li = this.parentNode.parentNode;
 
         var item = LeTao.getObjectFromId(window.data,$(this).attr('data-id'));

@@ -1,0 +1,26 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; }
+  * body {
+    background: #fff; }
+  * ul, * li {
+    list-style: none; }
+  * a {
+    color: #333;
+    text-decoration: none; }
+
+.y_header {
+  background: #069;
+  color: #fff; }
+  .y_header h1 {
+    color: #fff; }
+  .y_header .y_bar_icon {
+    color: #fff; }
+
+.footer {
+  background: #069; }
+  .footer span {
+    color: #fff; }
+  .footer .mui-active span {
+    color: #f30; }

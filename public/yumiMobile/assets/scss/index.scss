@@ -1,0 +1,122 @@
+// 定义变量与值
+$whiteColor:#fff;
+$orangeColor:#f30;
+$blueColor:#069;
+@mixin dFlex{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+@mixin title{
+    .title{
+        width: 100%;
+        img{
+            width: 100%;
+        }
+    }
+}
+@mixin Flex_start{
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+}
+@mixin textOver{
+    overflow : hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+.pd10{
+    padding:10px;
+}
+.y_header{
+    background: #006699;
+    color: $whiteColor;
+    
+     h1{
+        color: $whiteColor;
+    }
+    .y_bar_icon{
+        color: $whiteColor;
+    }
+}
+// 轮播图
+.y_mui_slider{
+    margin-top: 44px;
+}
+.container{
+    margin-bottom: 50px;
+}
+// 图片列表
+.y_nav_list{
+    ul{
+        @include  dFlex;
+        li{
+            width: 33%;
+            img{
+                width: 100%;
+            }
+        }
+    }
+}
+// 品牌
+.brand{
+    @include title;
+    ul{
+        @include  dFlex;
+        li{
+            width: 25%;
+            a{
+                img{
+                    width: 100%;
+                }
+            }
+        }
+    }
+}
+// 运动生活专区
+.lift{
+    @include title;
+    ul{
+        @include  dFlex;
+        li{
+            width: 49%;
+            box-shadow:0 0 5px #ccc;
+            padding: 10px;
+            margin-bottom: 5px;
+            a{
+                img{
+                    width: 100%;
+                }
+            }
+            .details{
+                @include textOver;
+                line-clamp: 2;
+            }
+            .price{
+                text-align: center;
+                span{
+                    &:nth-child(1){
+                        color: $orangeColor;
+                        margin-right: 10px;
+                    }
+                    &:nth-child(2){
+                        text-decoration: line-through;
+                    }
+                }
+            }
+            .buy{
+                display: block;
+                width: 82px;
+                padding: 5px 10px;
+                border-radius: 15px;
+                background:$blueColor;
+                margin: 0 auto;
+                color: $whiteColor;
+                text-align: center;
+                font-size: 12px;
+            }
+        }
+    }
+}

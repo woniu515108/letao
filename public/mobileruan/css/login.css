@@ -1,0 +1,52 @@
+.login-content {
+  position: relative;
+  top: 44px;
+  bottom: 50px;
+}
+
+input {
+  background: none;
+  outline: none;
+  border: 0px;
+}
+
+#login-btn,#register-btn,#editPwd-btn {
+  width: 80%;
+  background-color: #006699;
+  border:0;
+  border-radius: 25px;
+}
+
+.register-now {
+  float: right;
+  font-size: 14px;
+  margin: 20px;
+}
+
+.getCode {
+  position: absolute;
+  background-color: #007aff;
+  right: 10px;
+  top: 50%;
+  color: #fff;
+  font-size: 14px;
+  transform: translateY(-50%);
+  padding: 5px;
+  border-radius: 4px;
+}
+#vCode{
+  text-align: center;
+  color:#006699;
+  width:40%;
+  background-color: #fff;
+  border:1px solid #006699;
+  border-radius: 25px;
+}
+.login-now{
+  display:block;
+  text-align: right;
+  margin-top:20px;
+  font-size:14px;
+  color: #006699;
+  padding-right:10px;
+}

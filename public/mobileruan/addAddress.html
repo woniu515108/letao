@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="assets/mui/css/mui.min.css">
+  <link rel="stylesheet" href="assets/fontawesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="assets/mui/css/mui.picker.css">
+  <link rel="stylesheet" href="assets/mui/css/mui.poppicker.css">
+  <title>会员中心</title>
+  <style>
+    .address-content {
+      position: relative;
+      top: 50px;
+      bottom: 50px;
+      padding: 0 10px;
+    }
+
+    #addAddress {
+      display: block;
+      width: 80%;
+      padding: 10px 0;
+      box-sizing: border-box;
+      color: #fff;
+      text-align: center;
+      margin: 5px auto;
+      background-color: #006699;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- 头部区域 -->
+  <header id="header" class="mui-bar mui-bar-nav my-header">
+    <a class="mui-icon mui-icon-undo" href="javascript:history.back();"></a>
+    <h1 class="mui-title">编辑收货地址</h1>
+  </header>
+
+  <!-- 内容区域 -->
+  <div class="address-content">
+    <!-- <form class="mui-input-group" id="editForm"> -->
+    <div class="form_box" id="editForm">
+      <!-- <div class="mui-input-row">
+          <input name="recipients" class="mui-input-clear" type="text" placeholder="收货人">
+        </div>
+        <div class="mui-input-row">
+          <input name="postCode" class="mui-input-clear" type="text" placeholder="邮编">
+        </div>
+        <div class="mui-input-row">
+          <input name="selectCity" id="selectCity" type="text" class="mui-input-clear" readonly placeholder="省市区">
+        </div>
+        <div class="mui-input-row">
+          <textarea name="detail" id="textarea" class="mui-input-clear" rows="5" placeholder="详细地址"></textarea>
+        </div>
+        <a href="javascript:;" class="mui-btn btn_submit" id="addAddress">确认</a> -->
+    </div>
+    <!-- </form> -->
+  </div>
+
+  <!-- 底部区域 -->
+  <footer class="mui-bar mui-bar-tab my-footer">
+    <a class="mui-tab-item" href="index.html">
+      <span class="mui-icon mui-icon-home"></span>
+      <span class="mui-tab-label">首页</span>
+    </a>
+
+    <a class="mui-tab-item" href="category.html">
+      <span class="mui-icon mui-icon-list"></span>
+      <span class="mui-tab-label">分类</span>
+    </a>
+
+    <a class="mui-tab-item" href="cart.html">
+      <span class="mui-icon fa fa-shopping-cart"></span>
+      <span class="mui-tab-label">购物车</span>
+    </a>
+
+    <a class="mui-tab-item" href="user.html">
+      <span class="mui-icon mui-icon-contact"></span>
+      <span class="mui-tab-label">会员中心</span>
+    </a>
+
+  </footer>
+  <script src="assets/zepto/zepto.min.js"></script>
+  <script src="assets/mui/js/mui.min.js"></script>
+  <script src="js/base.js"></script>
+  <script src="js/addAddress.js"></script>
+  <script src="js/city.js"></script>
+  <script src="assets/mui/js/mui.picker.js"></script>
+  <script src="assets/mui/js/mui.poppicker.js"></script>
+  <script src="assets/artTemplate/template-native.js"></script>
+
+  <script type="text/template" id="editTpl">
+    <div class="mui-input-row">
+      <input name="recipients" class="mui-input-clear" type="text" placeholder="收货人" value="<%=recipients%>">
+        </div>
+      <div class="mui-input-row">
+        <input name="postCode" class="mui-input-clear" type="text" placeholder="邮编" value="<%=postCode%>">
+        </div>
+        <div class="mui-input-row">
+          <input name="selectCity" id="selectCity" type="text" class="mui-input-clear" readonly placeholder="省市区" value="<%=address%>">
+        </div>
+          <div class="mui-input-row">
+            <textarea name="detail" id="textarea" class="mui-input-clear" rows="5" placeholder="详细地址"><%=addressDetail%></textarea>
+          </div>
+          <a href="javascript:;" class="mui-btn btn_submit" id="addAddress">确认</a>
+  </script>
+</body>
+
+</html>

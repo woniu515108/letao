@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/mui/css/mui.min.css">
+    <link rel="stylesheet" href="assets/fontawesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/detail.css">
+    <title>乐淘商城-商品详情</title>
+</head>
+
+<body>
+    <!-- 头部区域 -->
+    <header id="header" class="mui-bar mui-bar-nav my-header">
+        <a class="mui-icon mui-icon-undo" href="javascript:history.back();"></a>
+        <h1 class="mui-title">商品详情</h1>
+        <a href="index.html" class="mui-icon mui-icon-home mui-pull-right"></a>
+    </header>
+
+    <!-- 内容区域 -->
+    <div class="mui-content">
+        <div class="container" id="detailInfo">
+            <script type="text/template" id="detailTpl">
+            <!-- 轮播区域 -->
+                <div class="mui-slider">
+                    <div class="mui-slider-group mui-slider-loop">
+                        <!--支持循环，需要重复图片节点-->
+                        <%if(!pic&&pic.length==0){%>
+                            pic=[{'picAddr':'/mobileruan/images/none.png'}];
+                        <%}else{%>
+                        <div class="mui-slider-item mui-slider-item-duplicate">
+                            <a href="#"><img src="<%=pic[pic.length-1].picAddr%>" /></a>
+                        </div>
+                        <%for(var i=0;i<pic.length;i++){%>
+                            <div class="mui-slider-item">
+                                <a href="#"><img src="<%=pic[i].picAddr%>" /></a>
+                            </div>
+                        <%}%>
+                        <%}%>
+                        <!--支持循环，需要重复图片节点-->
+                        <div class="mui-slider-item mui-slider-item-duplicate">
+                            <a href="#"><img src="<%=pic[0].picAddr%>" /></a>
+                        </div>
+                    </div>
+                    <!-- 轮播控制器 -->
+                    <div class="mui-slider-indicator">
+                        <%for(var i=0;i<pic.length;i++){%>
+                        <div class="mui-indicator <%=i==0?'mui-active':''%>"></div>
+                        <%}%>
+                    </div>
+                </div>
+                <!-- 介绍 -->
+                <p class="title"><%=proName%></p>
+                <div class="price">
+                    价格：
+                    <span class="newPrice">￥<%=price%></span>
+                    <span class="oldPrice">￥<%=oldPrice%></span>
+                </div>
+                <div class="code">
+                    尺码：
+                    <%if(size[0] == "S"){%>
+                        <%var closize=["S","M","L","XL","2XL","3XL"]%>
+                        <%for(var value of closize){%>
+                            <span class="clothes-size"><%=value%></span>
+                        <%}%>
+                    <%}else{%>
+                        <%for(var i=size[0];i<=size[1];i++){%>
+                            <span class="item"><%=i%></span>
+                        <%}%>
+                    <%}%>
+                </div>
+                <div class="num">
+                    数量：
+                    <main>
+                        <span id="minus">-</span>
+                        <input type="text" id="num" value="1">
+                        <span id="plus">+</span>
+                    </main>
+                    <span class="margin">剩余：<%=num%>件</span>
+                </div>
+            </script>
+        </div>
+
+
+        <!-- 购物车  -->
+        <div class="operate">
+            <div class="cart">
+                <a href="#" class="fa fa-shopping-cart"></a>
+            </div>
+            <div class="btns">
+                <span class="addCart">加入购物车</span>
+                <a href="#" class="buy">立即购买</a>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- 底部区域 -->
+    <footer class="mui-bar mui-bar-tab my-footer">
+        <a class="mui-tab-item" href="index.html">
+            <span class="mui-icon mui-icon-home"></span>
+            <span class="mui-tab-label">首页</span>
+        </a>
+        <a class="mui-tab-item" href="category.html">
+            <span class="mui-icon mui-icon-list"></span>
+            <span class="mui-tab-label">分类</span>
+        </a>
+        <a class="mui-tab-item" href="cart.html">
+            <span class="mui-icon fa fa-shopping-cart"></span>
+            <span class="mui-tab-label">购物车</span>
+        </a>
+        <a class="mui-tab-item" href="user.html">
+            <span class="mui-icon mui-icon-contact"></span>
+            <span class="mui-tab-label">会员中心</span>
+        </a>
+    </footer>
+    <script src="assets/zepto/zepto.min.js"></script>
+    <script src="assets/mui/js/mui.min.js"></script>
+    <script src="js/base.js"></script>
+    <script src="js/detail.js"></script>
+    <script src="assets/artTemplate/template-native.js"></script>
+</body>
+
+</html>

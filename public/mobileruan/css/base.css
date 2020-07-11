@@ -1,0 +1,56 @@
+/*  重置样式   reset  */
+
+* {
+    margin: 0;
+    padding: 0;
+    touch-action: none; 
+}
+
+ul li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+
+/*  头部样式  */
+
+.my-header {
+    background-color: #006699;
+}
+
+.my-header .mui-icon {
+    color: #fff;
+}
+
+.my-header h1 {
+    color: #fff;
+}
+
+.my-header .mui-icon-search {
+    color: #fff;
+}
+
+
+/* 中间区域 */
+
+.mui-content {
+    background-color: #fff;
+}
+
+
+/*  底部栏样式  */
+
+.my-footer {
+    background-color: #006699;
+}
+
+.my-footer .mui-tab-item {
+    color: #fff;
+}
+
+.my-footer .mui-tab-item.mui-active {
+    color: darkorange;
+}

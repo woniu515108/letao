@@ -2,7 +2,8 @@
 SQLyog Ultimate v12.09 (64 bit)
 MySQL - 5.5.20-log : Database - letao
 *********************************************************************
-*/
+*/
+
 
 /*!40101 SET NAMES utf8 */;
 
@@ -157,7 +158,7 @@ CREATE TABLE `user` (
 
 /*Data for the table `user` */
 
-insert  into `user`(`id`,`username`,`password`,`mobile`,`isDelete`) values (1,'itcast','lueSGJZetyySpUndWjMBEg==','15102324243',1);
+-- insert  into `user`(`id`,`username`,`password`,`mobile`,`isDelete`) values (1,'itcast','lueSGJZetyySpUndWjMBEg==','15102324243',1);
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;

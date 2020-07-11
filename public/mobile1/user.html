@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="assets/mui/css/mui.min.css">
+    <link rel="stylesheet" href="assets/FontAwesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/user.css">
+
+</head>
+
+<body>
+    <!-- 头部区域 -->
+    <header id="header" class="mui-bar mui-bar-nav my-header">
+        <h1 class="mui-title">个人中心</h1>
+        <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left" href="javascript:history.back();" style="color:#fff;"></a>
+    </header>
+    <!-- 内容区域 -->
+    <div class="mui-content">
+        <ul class="mui-table-view" id="userInfo">
+           
+        </ul>
+        <ul class="mui-table-view">
+            <li class="mui-table-view-cell">
+                <a class="mui-navigate-right" href="javascript:;">修改密码</a>
+            </li>
+            <li class="mui-table-view-cell">
+                <a class="mui-navigate-right" href="javascript:;">我的购物车</a>
+            </li>
+            <li class="mui-table-view-cell">
+                <a class="mui-navigate-right" href="address.html">收货地址</a>
+            </li>
+            <li class="mui-table-view-cell">
+                 <a class="mui-text-center" id="logout" href="javascript:;">退出登录</a>
+            </li>
+
+        </ul>
+    </div>
+    <!-- 底部导航栏 -->
+    <nav class="mui-bar mui-bar-tab my-footer">
+        <a class="mui-tab-item" href="index.html">
+            <span class="mui-icon mui-icon-home"></span>
+            <span class="mui-tab-label">首页</span>
+        </a>
+        <a class="mui-tab-item" href="category.html">
+            <span class="mui-icon mui-icon-bars"></span>
+            <span class="mui-tab-label">分类</span>
+        </a>
+        <a class="mui-tab-item" href="cart.html">
+            <span class="mui-icon fa fa-shopping-cart"></span>
+            <span class="mui-tab-label">购物车</span>
+        </a>
+        <a class="mui-tab-item mui-active" href="login.html">
+            <span class="mui-icon mui-icon-person"></span>
+            <span class="mui-tab-label">会员中心</span>
+        </a>
+    </nav>
+    <script src="assets/zepto/zepto.min.js"></script>
+    <script src="assets/mui/js/mui.min.js"></script>
+    <script src="assets/artTemplate/template-native.js"></script>
+    <script src="js/base.js"></script>
+    <script src="js/user.js"></script>
+    
+        <script type="text/template" id="userTpl">
+            <li class="mui-table-view-cell">
+                    <a class="mui-navigate-right">
+                        <img src="images/user.jpg" class="mui-media-object mui-pull-left">
+                        <div class="mui-media-body">
+                            <%=username%>
+                            <p class="mui-ellipis">手机号:<%=mobile%></p>
+                        </div>
+                    </a>
+                </li>
+        </script>
+
+</body>
+
+</html>

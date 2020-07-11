@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=0" />
+    <title>乐淘首页</title>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="assets/mui/css/mui.min.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/cart.css">
+    <link rel="stylesheet" href="assets/FontAwesome/css/font-awesome.min.css">
+    <script src="assets/mui/js/mui.min.js"></script>
+    <script src="assets/zepto/zepto.min.js"></script>
+    <script src="assets/artTemplate/template-native.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/base.js"></script>
+
+</head>
+
+<body>
+    <header class="mui-bar mui-bar-nav my-header">
+        <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left" style="color: #fff" href="javascript:history.back();"></a>
+        <h1 class="mui-title">我的购物车</h1>
+    </header>
+    <div class="mui-content">
+        <div id="refreshContainer">
+            <div>
+                <ul class="mui-table-view" id="cart_box">
+
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="cart_order">订单总额：&yen;<span id="cartAmount">0.00</span> <a href="javascript:;">生成订单</a></div>
+     <!-- 底部导航栏 -->
+     <nav class="mui-bar mui-bar-tab my-footer">
+            <a class="mui-tab-item" href="index.html">
+                <span class="mui-icon mui-icon-home"></span>
+                <span class="mui-tab-label">首页</span>
+            </a>
+            <a class="mui-tab-item" href="category.html">
+                <span class="mui-icon mui-icon-bars"></span>
+                <span class="mui-tab-label">分类</span>
+            </a>
+            <a class="mui-tab-item" href="cart.html">
+                <span class="mui-icon fa fa-shopping-cart"></span>
+                <span class="mui-tab-label">购物车</span>
+            </a>
+            <a class="mui-tab-item" href="login.html">
+                <span class="mui-icon mui-icon-person"></span>
+                <span class="mui-tab-label">会员中心</span>
+            </a>
+        </nav>
+    <script type="text/template" id="cartTpl">
+        <% for(var i=0;i<result.length;i++){%>
+            <li  class="mui-table-view-cell">
+                <a href="javascript:;" class="mui-navigate-right mui-slider-handle">
+                    <img class="mui-media-object mui-pull-left" src="images/product.jpg">
+                    <div class="mui-media-body">
+                        <p class="name">
+                            <%=result[i].proName%>
+                        </p>
+                        <p class="info">
+                            <span class="price">￥<%=result[i].price%></span>
+                            <span class="oldPrice"><%=result[i].oldPrice%></span>
+                            <span class="number">x<%=result[i].num%></span>
+                        </p>
+                        <p><span class="size">鞋码：<%=result[i].size%></span></p>
+                    </div>
+                    <input data-id="<%=result[i].id%>" type="checkbox" />
+                </a>
+            </li>
+        <%}%>
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>乐淘 - 后台管理系统首页</title>
+    <!--bootstrap  原生样式-->
+    <link rel="stylesheet" href="./assets/bootstrap/css/bootstrap.min.css">
+    <!--字体图标-->
+    <link rel="stylesheet" href="./assets/font-awesome/css/font-awesome.css">
+    <!--加载进度条-->
+    <link rel="stylesheet" href="./assets/nprogress/nprogress.css">
+    <!--首页样式-->
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="./less/index.css">
+    <link rel="stylesheet" href="./less/bootstrap-table.css">
+    <!--jQuery 插件.-->
+    <script src="./assets/jquery/jquery.min.js"></script>
+    <script>
+        /*检测用户是否已经登录*/
+        $.ajax({
+            url: "/employee/checkRootLogin",
+            type: "get",
+            success: function (data) {
+                // console.log(data);
+                if (data.error == 400) {
+                    //说明用户未登录
+                    window.location.href = "login.html";
+                }
+            }
+        })
+    </script>
+</head>
+
+<body>
+
+    <!-- 侧栏    -->
+    <aside>
+        <div class="profile">
+            <img src="images/monkey.png" class="img-circle img-thumbnail" alt="">
+            <span>monkey</span>
+        </div>
+        <div id="parent" class="nav">
+            <div class="card">
+                <div class="card-header">
+                    <a href="index.html" class="card-link" ><i class="fa fa-user"></i> 用户管理</a>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    <a href="#card2" class="card-link" data-toggle="collapse"><i class="fa fa-bars"></i> 分类管理 <i
+                            class="fa fa-angle-right"></i></a>
+                </div>
+                <div class="collapse" id="card2" data-parent="#parent">
+                    <div class="card-body"><a href="categoryFirst.html">一级分类管理</a></div>
+                    <div class="card-body"><a href="categorySecond.html">二级分类管理</a></div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    <a href="productList.html" class="card-link"><i class="fa fa-product-hunt"></i>
+                        商品管理</a>
+                </div>
+            </div>
+        </div>
+    </aside>
+
+    <!-- 主体 -->
+    <section>
+
+        <div class="section-header">
+            <div class="section-nav"><a href="" class="logout"><i class="fa fa-sign-out"></i> 退出</a></div>
+        </div>
+        <div class="alert alert-success">已成功添加 1 条分类数据！</div>
+        <div class="main">
+
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">添加分类</button>
+            <br><br>
+            <table id="categoryId">
+
+            </table>
+        </div>
+
+    </section>
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" id="closeWindowId" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">添加分类</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="categoryIdFiled" placeholder="请输入分类的名称">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                    <button type="button" class="btn btn-primary categorySave">保存</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+    <!--bootstrap 核心文件-->
+    <script src="./assets/bootstrap/js/bootstrap.min.js"></script>
+    <!--加载绿色进度条-->
+    <script src="./assets/nprogress/nprogress.js"></script>
+    <!--加载绿色进度条的使用-->
+    <script src="./js/common.js"></script>
+    <!--table 插件的核心文件-->
+    <script src="./js/bootstrap-table.js"></script>
+    <!--国际化文件，中文.-->
+    <script src="./js/bootstrap-table-zh-CN.js"></script>
+    <script src="js/ajax.js"></script>
+
+    <script>
+        $(function () {
+            /* 用bootstrap，画table表格。使用bootstrap-table插件 */
+            //这个表格是不是应该渲染到页面上的一个标签里面
+            //调用bootstrapTable()
+            $("#categoryId").bootstrapTable({
+                //定义有多少列
+                url: '/category/queryTopCategoryPaging',
+                method: 'get',
+                striped: true,  //隔行变色效果
+                cache: false,    //是否使用缓存，默认为true
+                pagination: true,   //启动分页
+                sortable: true,   //排序
+                // sortOrder:"asc",   //排序方式
+                //是否值允许选择单行
+                pageList: [10],   //记录数可选列表
+                // pageSize:2,
+                sidePagination: "server",   //分页方式，client还是server端。
+                //在给/user/queryUser 发送请求之前会调用 这个方法.
+                queryParams: function (params) {
+                    //在这个方法里面可以设置一些参数数据给服务器
+                    params.page = params.offset / 10 + 1;
+                    params.pageSize = 10;
+                    return params;
+                },
+                height: 500,                        //行高，如果没有设置height属性，表格自动根据记录条数觉得表格高度
+                uniqueId: "ID",                     //每一行的唯一标识，一般为主键列
+                cardView: false,                    //是否显示详细视图
+                detailView: false,                  //是否显示父子表
+                singleSelect: true,
+                columns: [{
+                    checkbox: true
+                }, {
+                    field: 'id',
+                    title: '分类的编号'
+                }, {
+                    field: 'categoryName',
+                    title: '分类名称'
+                }],
+            });
+
+            /*
+                添加一级分类名称，逻辑不能写在表格插件里面 添加按钮在表格外面
+                1.确定到保存按钮，完事之后给他添加点击按钮
+                2.获取用户输入框输入的值
+                3.发请求 并且携带参数
+                4.重新加载表格
+            */
+            $(".categorySave").on("click", function () {
+                //发送到后台服务器
+                var url = "/category/addTopCategory";
+                var type = "post";
+                var data = {
+                    categoryName: $.trim($("#categoryIdFiled").val())
+                };
+                var successfn = function (res) {
+                    console.log(res);
+                    if (res.success) {
+                        //不传递参数就是触发当前元素的点击事件.
+                        $("#closeWindowId").click();
+                        //清空用户输入的分类名的框.
+                        $("#categoryIdFiled").val("");
+                        $(".alert-success").show(500);
+                        setTimeout(function () {
+                            $(".alert-success").hide(500);
+                        }, 2000);
+                        // 刷新table
+                        $("#categoryId").bootstrapTable("refresh");
+                    }
+                }
+                ajaxload(url, type, data, null, successfn, null);
+
+
+                // $.ajax({
+                //     url: "/category/addTopCategory",
+                //     type: "post",
+                //     data: {
+                //         categoryName: categoryName
+                //     },
+                //     success: function (data) {
+                //         if (data.success) {
+
+                //             //不传递参数就是触发当前元素的点击事件.
+                //             $("#closeWindowId").click();
+                //             //清空用户输入的分类名的框.
+                //             $("#categoryIdFiled").val("");
+                //             $(".alert-success").show(500);
+                //             setTimeout(function () {
+                //                 $(".alert-success").hide(500);
+                //             }, 2000);
+                //             // 刷新table
+                //             $("#categoryId").bootstrapTable("refresh");
+                //         }
+                //     }
+                // })
+            })
+
+        })
+    </script>
+</body>
+
+</html>

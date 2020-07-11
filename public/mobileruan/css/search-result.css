@@ -1,0 +1,122 @@
+#refreshContainer {
+  width: 100%;
+  background-color: #fff;
+  position: absolute;
+  top: 44px;
+  bottom: 50px;
+  overflow: hidden;
+}
+
+
+#refreshContainer .search {
+  margin: 10px 10px;
+  border-radius: 25px;
+  border: 1px solid #006699;
+  overflow: hidden;
+}
+
+#refreshContainer .search input[type='search'] {
+  width: 70%;
+  height: 30px;
+  line-height: 30px;
+  float: left;
+  font-size: 14px;
+  margin: 0;
+  background-color: #fff;
+  padding-left:10px;
+  text-align: left;
+}
+
+#refreshContainer .search .mui-btn {
+  float: right;
+  height: 30px;
+  border-radius: 25px;
+  border: 0;
+  background-color: #006699;
+  padding:6px 25px;
+}
+
+
+
+#refreshContainer .selector {
+  background-color: #f1f1f1;
+  text-align: center;
+  padding: 5px 10px;
+}
+
+#refreshContainer .selector li {
+  width:33.3333%;
+  text-align: center;
+  float:left;
+  font-size:12px;
+}
+#refreshContainer .selector li .mui-icon{
+  font-size:12px;
+}
+
+
+
+#refreshContainer .good-list {
+  will-change: 100%;
+  margin-top:10px;
+}
+#refreshContainer .good-list .good-item {
+  width: 50%;
+  float: left;
+  padding: 0 5px;
+  box-sizing: border-box;
+  position: relative;
+  margin-bottom: 10px;
+}
+
+#refreshContainer .good-list .good-item a {
+  display: block;
+  width:100%;
+  box-shadow: 0 0 5px #ccc;
+  padding: 5px;
+  text-align: center;
+}
+
+#refreshContainer .good-list .good-item a img {
+  width: 100%;
+  height: 150px;
+  vertical-align: center;
+}
+
+#refreshContainer .good-list .name {
+  display: block;
+  color: #8f8f94;
+  font-size: 14px;
+  text-align: left;
+  height: 38px;
+  line-height: 19px;
+  overflow: hidden;
+  padding: 3px;
+}
+
+#refreshContainer .good-list .good-item p {
+  text-align: center;
+  padding-top: 6px;
+}
+
+#refreshContainer .good-list .good-item .price span:first-child {
+  color: #f30;
+  margin-right: 10px;
+}
+
+#refreshContainer .good-list .good-item .price span:last-child {
+  text-decoration: line-through;
+}
+
+#refreshContainer .good-list .good-item .buy-now {
+  display: block;
+  width: 82px;
+  height: 32px;
+  text-align: center;
+  line-height: 32px;
+  margin: 40px auto 10px;
+  background-color: #069;
+  color: #fff;
+  font-size: 14px;
+  border-radius: 25px;
+}

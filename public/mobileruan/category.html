@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0,maximum-scale=1.0,minimum=1.0,user-scalable=no">
+    <link rel="stylesheet" href="assets/mui/css/mui.min.css">
+    <link rel="stylesheet" href="assets/fontawesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/category.css">
+
+    <title>乐淘商城</title>
+</head>
+
+<body>
+    <!-- 头部区域 -->
+    <header id="header" class="mui-bar mui-bar-nav my-header">
+        <a class="mui-icon mui-icon-undo" href="javascript:history.back();"></a>
+        <h1 class="mui-title">分类中心</h1>
+        <a href="search.html" class="mui-icon mui-icon-search mui-pull-right"></a>
+    </header>
+
+    <!-- 内容区域 -->
+    <div class="my-content">
+        <div class="category-left">
+            <div class="mui-scroll-wrapper">
+                <div class="mui-scroll">
+                    <div class=" links" id="links">
+                        
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="category-right">
+            <div class="mui-scroll-wrapper">
+                <div class="mui-scroll">
+                    <ul class="brand-list mui-clearfix" id="brand-list">
+                       
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+
+    <!-- 底部区域 -->
+    <footer class="mui-bar mui-bar-tab my-footer">
+        <a class="mui-tab-item" href="index.html">
+            <span class="mui-icon mui-icon-home"></span>
+            <span class="mui-tab-label">首页</span>
+        </a>
+        <a class="mui-tab-item mui-active" href="category.html">
+            <span class="mui-icon mui-icon-list"></span>
+            <span class="mui-tab-label">分类</span>
+        </a>
+        <a class="mui-tab-item" href="cart.html">
+            <span class="mui-icon fa fa-shopping-cart"></span>
+            <span class="mui-tab-label">购物车</span>
+        </a>
+        <a class="mui-tab-item" href="user.html">
+            <span class="mui-icon mui-icon-contact"></span>
+            <span class="mui-tab-label">会员中心</span>
+        </a>
+    </footer>
+    <script src="assets/zepto/zepto.min.js"></script>
+    <script src="assets/mui/js/mui.min.js"></script>
+    <script src="js/base.js"></script>
+    <script src="js/category.js"></script>
+    <script src="assets/artTemplate/template-native.js"></script>
+    <script>
+        //控制轮播插件
+        //获得slider插件对象
+        var gallery = mui('.mui-slider');
+        gallery.slider({
+            interval: 1000 //自动轮播周期，若为0则不自动播放，默认为0；
+        });
+    </script>
+    <script type="text/template" id="category-first">
+        <%for(var i=0;i<result.length;i++){%>
+            <a href="#" data-id="<%=result[i].id%>"><%=result[i].categoryName%></a>
+        <%}%>
+    </script>
+    <script type="text/template" id="category-second">
+        <%for(var i=0;i<rows.length;i++){%>
+            <li>
+                <a href="#">
+                    <img src="<%=rows[i].brandLogo%>" alt="">
+                    <p><%=rows[i].brandName%></p>
+                </a>
+            </li>
+        <%}%>
+        <%if(!rows.length){%>
+            <div>暂无数据</div>
+        <%}%>
+    </script>
+</body>
+
+</html>

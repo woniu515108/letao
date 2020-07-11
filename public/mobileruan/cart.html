@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/mui/css/mui.min.css">
+    <link rel="stylesheet" href="assets/fontawesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/cart.css">
+    <title>乐淘商城-购物车</title>
+</head>
+
+<body>
+    <!-- 头部区域 -->
+    <header id="header" class="mui-bar mui-bar-nav my-header">
+        <a class="mui-icon mui-icon-undo" href="javascript:history.back();"></a>
+        <h1 class="mui-title">商品详情</h1>
+        <a href="javascript:;" class="mui-icon mui-icon-refreshempty mui-pull-right"></a>
+    </header>
+
+    <!-- 内容区域 -->
+    <div class="mui-content">
+        <div id="refreshContainer">
+            <div>
+                <ul class="mui-table-view" id="cart-box">
+                    <script type="text/template" id="cartTpl">
+                        <%for(var i=0;i<result.length;i++){%>
+                        <li class="mui-table-view-cell">
+                            <div class="mui-slider-right mui-disabled">
+                                <span class="mui-btn mui-btn-green edit-btn" data-id="<%=result[i].id%>">编辑</span>
+                                <span class="mui-btn mui-btn-red delete-btn" data-id="<%=result[i].id%>">删除</span>
+                              </div>
+                            <a href="javascript:;" class="mui-navigate-right mui-slider-handle">
+                                <input type="checkbox" class="mui-media-object mull-pull-left">
+                                <img class="mui-media-object mull-pull-left" src="<%=result[i].pic[0].picAddr%>" alt="">
+                                <div class="cart-pro mui-media-body mull-pull-right">
+                                    <p class="name"><%=result[i].proName%></p>
+                                    <p class="info">
+                                        <span class="price">￥<%=result[i].price%></span>
+                                        <span class="oldPrice">￥<%=result[i].oldPrice%></span>
+    
+                                    </p>
+                                    <p><span class="size">尺寸：<%=result[i].size%></span>
+                                        <span class="number">&times; <%=result[i].num%></span></p>
+                                </div>
+                            </a>
+                        </li>
+                        <%}%>
+                    </script>
+                </ul>
+                <br><br>
+            </div>
+        </div>
+
+    </div>
+    <div class="cart-order">订单总量：&yen;<span id="cartAmount">0.00</span> <a href="javascript:;">生成订单</a></div>
+    <!-- 底部区域 -->
+    <footer class="mui-bar mui-bar-tab my-footer">
+        <a class="mui-tab-item" href="index.html">
+            <span class="mui-icon mui-icon-home"></span>
+            <span class="mui-tab-label">首页</span>
+        </a>
+        <a class="mui-tab-item" href="category.html">
+            <span class="mui-icon mui-icon-list"></span>
+            <span class="mui-tab-label">分类</span>
+        </a>
+        <a class="mui-tab-item mui-active" href="cart.html">
+            <span class="mui-icon fa fa-shopping-cart"></span>
+            <span class="mui-tab-label">购物车</span>
+        </a>
+        <a class="mui-tab-item" href="user.html">
+            <span class="mui-icon mui-icon-contact"></span>
+            <span class="mui-tab-label">会员中心</span>
+        </a>
+    </footer>
+    <script src="assets/zepto/zepto.min.js"></script>
+    <script src="assets/mui/js/mui.min.js"></script>
+    <script src="js/base.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="assets/artTemplate/template-native.js"></script>
+
+    <script type="text/template" id="cartUpdateTpl">
+        <div class="cart_update">
+            <div class="code">
+                尺码：
+                    <%if(model.productSize[0] == "S"){%>
+                        <%var closize=["S","M","L","XL","2XL","3XL"];%>
+                        <%for(var value of closize){%>
+                            <span class="clothes-size <%=i==model.productSize?'active':''%>"><%=value%></span>
+                        <%}%>
+                    <%}else{%>
+                        <%for(var i=model.productSize[0];i<=model.productSize[1];i++){%>
+                            <span class="item <%=i==model.productSize?'active':''%>"><%=i%></span>
+                        <%}%>
+                    <%}%>
+            </div>
+            <div class="num">
+                数量：
+                <main>
+                    <span id="minus" class="minus">-</span>
+                    <input type="text" id="num" value="<%=model.num%>" data-max="<%=model.productNum%>" >
+                    <span id="plus" class="plus">+</span>
+                </main>
+            </div>
+        </div>
+    </script>
+</body>
+
+</html>

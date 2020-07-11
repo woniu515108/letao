@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>乐淘 - 后台管理系统首页</title>
+    <!--bootstrap  原生样式-->
+    <link rel="stylesheet" href="./assets/bootstrap/css/bootstrap.min.css">
+    <!--字体图标-->
+    <link rel="stylesheet" href="./assets/font-awesome/css/font-awesome.css">
+    <!--加载进度条-->
+    <link rel="stylesheet" href="./assets/nprogress/nprogress.css">
+    <!--首页样式-->
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="./less/index.css">
+    <link rel="stylesheet" href="./less/bootstrap-table.css">
+    <!--jQuery 插件.-->
+    <script src="./assets/jquery/jquery.min.js"></script>
+    <script>
+        /*检测用户是否已经登录*/
+        $.ajax({
+            url: "/employee/checkRootLogin",
+            type: "get",
+            success: function (data) {
+                // console.log(data);
+                if (data.error == 400) {
+                    //说明用户未登录
+                    window.location.href = "login.html";
+                }
+            }
+        })
+    </script>
+</head>
+
+<body>
+    <!-- 侧栏    -->
+    <aside>
+        <div class="profile">
+            <img src="images/monkey.png" class="img-circle img-thumbnail" alt="">
+            <span>monkey</span>
+        </div>
+        <div id="parent" class="nav">
+            <div class="card">
+                <div class="card-header">
+                    <a href="index.html" class="card-link" ><i class="fa fa-user"></i> 用户管理</a>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    <a href="#card2" class="card-link" data-toggle="collapse"><i class="fa fa-bars"></i> 分类管理 <i
+                            class="fa fa-angle-right"></i></a>
+                </div>
+                <div class="collapse" id="card2" data-parent="#parent">
+                    <div class="card-body"><a href="categoryFirst.html">一级分类管理</a></div>
+                    <div class="card-body"><a href="categorySecond.html">二级分类管理</a></div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    <a href="productList.html" class="card-link"><i class="fa fa-product-hunt"></i>
+                        商品管理</a>
+                </div>
+            </div>
+        </div>
+    </aside>
+
+    <!-- 主体 -->
+    <section>
+        <div class="section-header">
+            <div class="section-nav"><a href="" class="logout"><i class="fa fa-sign-out"></i> 退出</a></div>
+        </div>
+        <div class="alert alert-success"><span></span></div>
+        <div class="main">
+            <table id="userId">
+
+            </table>
+        </div>
+
+    </section>
+
+
+
+
+    <!--bootstrap 核心文件-->
+    <script src="./assets/bootstrap/js/bootstrap.min.js"></script>
+    <!--加载绿色进度条-->
+    <script src="./assets/nprogress/nprogress.js"></script>
+    <!--加载绿色进度条的使用-->
+    <script src="./js/common.js"></script>
+    <!--table 插件的核心文件-->
+    <script src="./js/bootstrap-table.js"></script>
+    <!--国际化文件，中文.-->
+    <script src="./js/bootstrap-table-zh-CN.js"></script>
+
+    <script>
+        $(function () {
+            /* 用bootstrap，画table表格。使用bootstrap-table插件 */
+            //这个表格是不是应该渲染到页面上的一个标签里面
+            //调用bootstrapTable()
+            $("#userId").bootstrapTable({
+                //定义有多少列
+                url: '/user/queryUser',
+                striped: true,  //隔行变色效果
+                cache: false,    //是否使用缓存，默认为true
+                pagination: true,   //启动分页
+                sortable: false,   //排序
+                // sortOrder:"asc",   //排序方式
+                //是否值允许选择单行
+                pageList: [10],   //记录数可选列表
+                sidePagination: "server",   //分页方式，client还是server端。
+                //在给/user/queryUser 发送请求之前会调用 这个方法.
+                queryParams: (params) => {
+                    //在这个方法里面可以设置一些参数数据给服务器
+                    params.page = params.offset / 10 + 1;
+                    params.pageSize = 10;
+                    return params;
+                },
+                height: 500,                        //行高，如果没有设置height属性，表格自动根据记录条数觉得表格高度
+                uniqueId: "ID",                     //每一行的唯一标识，一般为主键列
+                cardView: false,                    //是否显示详细视图
+                detailView: false,                  //是否显示父子表
+                singleSelect: true,
+                columns: [{
+                    checkbox: true
+                }, {
+                    field: 'username',
+                    title: '用户名'
+                }, {
+                    field: 'mobile',
+                    title: '电话'
+                }, {
+                    field: 'isDelete',
+                    title: '状态'
+                }, {
+                    field: 'operation',
+                    title: '操作'
+                }],
+                //每一行的数据在渲染之前，都会调用这个方法.
+                //调用这个方法，会传递这一行的数据，以及这一行的数据对应的 索引值
+                rowStyle: function roeStyle(row, index) {
+                    //row  代表每一行
+                    if (row.isDelete == 1) {
+                        row.isDelete = "已启用";
+                        row.operation = '<a type="button" id="' + row.id + '" class="btn btn-danger disablebtn">禁用</a>';
+                    }
+                    else if (row.isDelete == 0) {
+                        row.isDelete = "已禁用";
+                        row.operation = '<a type="button" id="' + row.id + '" class="btn btn-success enablebtn">启用</a>';
+                    }
+                    return row;
+                },
+                //数据加载成功之后触发
+                onLoadSuccess: function () {
+                    //禁用的逻辑
+                    /*
+                        1.获取到所有的禁用按钮 添加点击事件
+                        2.发请求 传参数
+                        3.联动修改状态列的文字
+                    */
+                    $(".disablebtn").on("click", function () {
+                        $.ajax({
+                            url: "/user/updateUser",
+                            type: "post",
+                            data: {
+                                id: this.id,
+                                isDelete: 0
+                            },
+                            success: function (data) {
+                                if (data.success) {
+                                    $(".alert-success").show(500).html("<span>成功禁用 1 条数据！</span>");
+                                    setTimeout(function () {
+                                        $(".alert-success").hide(500);
+                                    }, 2000);
+                                    //调用table 的refresh 方法，就会去重新加载数据，渲染数据.
+                                    $("#userId").bootstrapTable("refresh")
+                                }
+                            }
+                        })
+                    });
+                    $(".enablebtn").on("click", function () {
+                        $.ajax({
+                            url: "/user/updateUser",
+                            type: "post",
+                            data: {
+                                id: this.id,
+                                isDelete: 1
+                            },
+                            success: function (data) {
+
+                                if (data.success) {
+                                    $(".alert-success").show(500).html("<span>成功启用 1 条数据！</span>");
+                                    setTimeout(function () {
+                                        $(".alert-success").hide(500);
+                                    }, 2000);
+                                    //调用table 的refresh 方法，就会去重新加载数据，渲染数据.
+                                    $("#userId").bootstrapTable("refresh")
+                                }
+                            }
+                        })
+                    });
+                }
+            });
+        })
+
+
+
+    </script>
+
+</body>
+
+</html>

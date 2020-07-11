@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="assets/mui/css/mui.min.css">
+    <link rel="stylesheet" href="assets/FontAwesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/search.css">
+
+</head>
+
+<body>
+    <!-- 头部区域 -->
+    <header id="header" class="mui-bar mui-bar-nav my-header">
+        <h1 class="mui-title">搜索中心</h1>
+        <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left" href="javascript:history.back();"></a>
+    </header>
+    <!-- 内容区域 -->
+    <div class="mui-content">
+         <div class="container">
+             <!-- 搜索框 -->
+             <div class="search">
+                 <input type="text" placeholder="请输入搜索商品名称">
+                 <input type="button" value="搜索" id="search-btn">
+             </div>
+
+             <!-- 搜索历史 -->
+             <div class="history-top mui-clearfix">
+                <span class="title mui-pull-left">搜索历史</span>
+                <span class="clear mui-icon mui-icon-trash mui-pull-right" id="clear-btn">清空搜索历史</span>
+             </div>
+             <ul class="mui-table-view" id="historyTop">
+                 
+             </ul>
+         </div>
+
+
+    </div>
+    <!-- 底部导航栏 -->
+    <nav class="mui-bar mui-bar-tab my-footer">
+        <a class="mui-tab-item" href="index.html">
+            <span class="mui-icon mui-icon-home"></span>
+            <span class="mui-tab-label">首页</span>
+        </a>
+        <a class="mui-tab-item" href="category.html">
+            <span class="mui-icon mui-icon-bars"></span>
+            <span class="mui-tab-label">分类</span>
+        </a>
+        <a class="mui-tab-item" href="cart.html">
+            <span class="mui-icon fa fa-shopping-cart"></span>
+            <span class="mui-tab-label">购物车</span>
+        </a>
+        <a class="mui-tab-item" href="login.html">
+            <span class="mui-icon mui-icon-person"></span>
+            <span class="mui-tab-label">会员中心</span>
+        </a>
+    </nav>
+    <script src="assets/zepto/zepto.min.js"></script>
+    <script src="assets/mui/js/mui.min.js"></script>
+    <script src="assets/artTemplate/template-native.js"></script>
+    <script src="js/base.js"></script>
+    <script src="js/search.js"></script>
+    
+       <script type="text/template" id="historyTpl">
+        <% for(var i=0;i<result.length;i++){%>
+            <li class="mui-table-view-cell" data-key="<%=result[i]%>"><%=result[i]%>
+                <span class="mui-icon mui-icon-closeempty mui-pull-right"></span>
+            </li>
+           
+        <%}%>
+       
+       </script>
+   
+</body>
+
+</html>
