@@ -16,81 +16,25 @@
         <a class="mui-icon mui-icon-search mui-pull-right y_bar_icon"></a>
     </header>
     <!-- container-begin -->
-    <div class="mui_content">
-        <div class="category_left">
+    <!-- 内容区域 -->
+    <div class="my-content">
+        <div class="category-left">
             <div class="mui-scroll-wrapper">
                 <div class="mui-scroll">
-                    <a href="">女士馆</a>
-                    <a href="">女士馆</a>
-                    <a href="">女士馆</a>
-                    <a href="">女士馆</a>
-                    <a href="">女士馆</a>
-                    <a href="">女士馆</a>
-                    <a href="">女士馆</a>
-                    <a href="">女士馆</a>
-                    <a href="">女士馆</a>
-                    <a href="">女士馆</a>
-                    <a href="">女士馆</a>
-                    <a href="">女士馆</a>
-                    <a href="">女士馆</a>
-                    <a href="">女士馆</a>
-                    <a href="">女士馆</a>
-                    <a href="">女士馆</a>
-                    <a href="">女士馆</a>
-                    <a href="">女士馆</a>
-                    <a href="">女士馆</a>
-                    <a href="">女士馆</a>
-                    <a href="">女士馆</a>
-                    <a href="">女士馆</a>
-                    <a href="">女士馆</a>
-                    <a href="">女士馆</a>
-                    <a href="">女士馆</a>
-                    <a href="">女士馆</a>
-                    <a href="">女士馆</a>
-                    <a href="">女士馆</a>
-                    <a href="">女士馆</a>
-                    <a href="">女士馆</a>
-                    <a href="">女士馆</a>
-                    <a href="">女士馆</a>
-                    <a href="">女士馆</a>
-                    <a href="">女士馆</a>
-                    <a href="">女士馆</a>
+                    <div class="links" id="links">
+
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="category_right">
+        <div class="category-right">
             <div class="mui-scroll-wrapper">
                 <div class="mui-scroll">
-                    <ul>
-                        <li>
-                            <a href="">
-                                <img src="assets/images/brand1.png" alt="">
-                            </a>
-                        </li>
-                        <li>
-                            <a href="">
-                                <img src="assets/images/brand1.png" alt="">
-                            </a>
-                        </li>
-                        <li>
-                            <a href="">
-                                <img src="assets/images/brand1.png" alt="">
-                            </a>
-                        </li>
-                        <li>
-                            <a href="">
-                                <img src="assets/images/brand1.png" alt="">
-                            </a>
-                        </li>
-                        <li>
-                            <a href="">
-                                <img src="assets/images/brand1.png" alt="">
-                            </a>
-                        </li>
+                    <ul class="brand-list mui-clearfix" id="brand-list">
+
                     </ul>
                 </div>
             </div>
-            
         </div>
     </div>
     <!-- container-end -->
@@ -119,5 +63,22 @@
     <script src="assets/zepto/zepto.min.js"></script>
     <script src="assets/mui/js/mui.min.js"></script>
     <script src="assets/js/category.js"></script>
+    <script src="assets/artTemplate/template-native.js"></script>
+    <!-- 一级分类模板引擎 -->
+    <script type="text/template" id='category-first'>
+        <% for(var i=0;i<result.length;i++){%>
+            <a href="" data-id=<%=result[i].id%>><%=result[i].categoryName %></a>
+        <%}%>
+    </script>
+    <script type="text/template" id='category-second'>
+        <% for(var i=0;i<result.length;i++){%>
+            <li>
+                <a href="#">
+                    <img src="<%=result[i].brandLogo%>" alt="">
+                    <p><%=result[i].brandName%></p>
+                </a>
+            </li>
+        <%}%>
+    </script>
 </body>
 </html>

@@ -8,38 +8,57 @@ $blueColor:#069;
     justify-content: flex-start;
     flex-wrap: wrap;
 }
-.mui_content{
-    margin-top:44px;
-    @include Flex_start;
-    .category_left{
-       
-        .mui-scroll-wrapper{
-            width: 100px;
-            .mui-scroll{
-                background: #f5f5f5;
-                a{
-                    display: block;
-                    text-align: center;
-                    padding:6px 0;
-                    border-right: 1px solid #666;
-                    border-bottom: 1px solid #666;
-                    font-size: 12px;
-                }
+.my-content{
+    position: absolute;
+    left: 0;
+    top:44px;
+    bottom: 50px;
+    width: 100%;
+    background-color: #fff;
+    overflow: hidden;
+    .category-left{
+        height: 100%;
+        width: 89px;
+        float: left;
+        position: relative;
+        .links{
+            background-color: #f5f5f5;
+            a{
+                display: block;
+                height: 45px;
+                line-height: 45px;
+                text-align: center;
+                color: #666;
+                font-size: 14px;
+                border-bottom: 1px solid #c9c9c9;
+                border-right: 1px solid #c9c9c9;
+            }
+            .active{
+                background-color: #fff;
+                border-right:1px solid transparent;
             }
         }
     }
-    .category_right{
-        width: 80%;
-        padding: 10px;
-        ul{
-            @include Flex_start;
+    .category-right{
+        height: 100%;
+        position: relative;
+        margin-left: 90px;
+        .brand-list{
+            background: #fff;
+            margin-top: 10px;
             li{
-                width: 33%;
-                text-align: center;
-                img{
-                    width: 100%;
+                width: 33.333%;
+                float: left;
+                a{
+                    display: block;
+                    img{
+                        width: 100%;
+                      }
+                }
+                p{
+                    text-align: center;
                 }
             }
-        }
+         }
     }
 }

@@ -1,28 +1,43 @@
-.mui_content {
-  margin-top: 44px;
-  display: flex;
-  justify-content: flex-start;
-  flex-wrap: wrap; }
-  .mui_content .category_left .mui-scroll-wrapper {
-    width: 100px; }
-    .mui_content .category_left .mui-scroll-wrapper .mui-scroll {
-      background: #f5f5f5; }
-      .mui_content .category_left .mui-scroll-wrapper .mui-scroll a {
+.my-content {
+  position: absolute;
+  left: 0;
+  top: 44px;
+  bottom: 50px;
+  width: 100%;
+  background-color: #fff;
+  overflow: hidden; }
+  .my-content .category-left {
+    height: 100%;
+    width: 89px;
+    float: left;
+    position: relative; }
+    .my-content .category-left .links {
+      background-color: #f5f5f5; }
+      .my-content .category-left .links a {
         display: block;
+        height: 45px;
+        line-height: 45px;
         text-align: center;
-        padding: 6px 0;
-        border-right: 1px solid #666;
-        border-bottom: 1px solid #666;
-        font-size: 12px; }
-  .mui_content .category_right {
-    width: 80%;
-    padding: 10px; }
-    .mui_content .category_right ul {
-      display: flex;
-      justify-content: flex-start;
-      flex-wrap: wrap; }
-      .mui_content .category_right ul li {
-        width: 33%;
-        text-align: center; }
-        .mui_content .category_right ul li img {
-          width: 100%; }
+        color: #666;
+        font-size: 14px;
+        border-bottom: 1px solid #c9c9c9;
+        border-right: 1px solid #c9c9c9; }
+      .my-content .category-left .links .active {
+        background-color: #fff;
+        border-right: 1px solid transparent; }
+  .my-content .category-right {
+    height: 100%;
+    position: relative;
+    margin-left: 90px; }
+    .my-content .category-right .brand-list {
+      background: #fff;
+      margin-top: 10px; }
+      .my-content .category-right .brand-list li {
+        width: 33.333%;
+        float: left; }
+        .my-content .category-right .brand-list li a {
+          display: block; }
+          .my-content .category-right .brand-list li a img {
+            width: 100%; }
+        .my-content .category-right .brand-list li p {
+          text-align: center; }
