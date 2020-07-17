@@ -41,3 +41,7 @@
             width: 100%; }
         .my-content .category-right .brand-list li p {
           text-align: center; }
+      .my-content .category-right .brand-list .noresult {
+        color: #666;
+        font-size: 14px;
+        padding: 10px; }

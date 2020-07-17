@@ -12,7 +12,7 @@
 <body>
     <header class="mui-bar mui-bar-nav y_header">
         <h1 class="mui-title">分类中心</h1>
-        <a class="mui-icon mui-icon-undo mui-pull-left y_bar_icon"></a>
+        <a class="mui-icon mui-icon-undo mui-pull-left y_bar_icon" href='javascript:history.back()'></a>
         <a class="mui-icon mui-icon-search mui-pull-right y_bar_icon"></a>
     </header>
     <!-- container-begin -->
@@ -41,11 +41,11 @@
 
     <!-- footer-begin -->
     <nav class="mui-bar mui-bar-tab footer">
-        <a class="mui-tab-item mui-active" href="">
+        <a class="mui-tab-item" href="index.html">
             <span class="mui-icon mui-icon-home"></span>
             <span class="mui-tab-label">首页</span>
         </a>
-        <a class="mui-tab-item" href="category.html">
+        <a class="mui-tab-item mui-active" href="category.html">
             <span class="mui-icon mui-icon mui-icon-bars"></span>
             <span class="mui-tab-label">分类</span>
         </a>
@@ -53,7 +53,7 @@
             <span class="mui-icon fa fa-shopping-cart"></span>
             <span class="mui-tab-label">购物车</span>
         </a>
-        <a class="mui-tab-item" href="">
+        <a class="mui-tab-item" href="login.html">
             <span class="mui-icon mui-icon-person"></span>
             <span class="mui-tab-label">会员中心</span>
         </a>
@@ -63,21 +63,26 @@
     <script src="assets/zepto/zepto.min.js"></script>
     <script src="assets/mui/js/mui.min.js"></script>
     <script src="assets/js/category.js"></script>
+    <script src="assets/js/base.js"></script>
     <script src="assets/artTemplate/template-native.js"></script>
     <!-- 一级分类模板引擎 -->
     <script type="text/template" id='category-first'>
         <% for(var i=0;i<result.length;i++){%>
-            <a href="" data-id=<%=result[i].id%>><%=result[i].categoryName %></a>
+            <a href="#" data-id=<%=result[i].id%>><%=result[i].categoryName %></a>
         <%}%>
     </script>
+    <!-- 二级分类模板引擎 -->
     <script type="text/template" id='category-second'>
-        <% for(var i=0;i<result.length;i++){%>
+        <% for(var i=0;i<rows.length;i++){%>
             <li>
                 <a href="#">
-                    <img src="<%=result[i].brandLogo%>" alt="">
-                    <p><%=result[i].brandName%></p>
+                    <img src="<%=rows[i].brandLogo%>" alt="">
+                    <p><%=rows[i].brandName%></p>
                 </a>
             </li>
+        <%}%>
+        <% if(!rows.length){%>
+            <div class="noresult">暂时没有分类数据</div>
         <%}%>
     </script>
 </body>

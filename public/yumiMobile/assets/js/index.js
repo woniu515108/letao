@@ -1,5 +1,3 @@
-// 激活a标签
-mui('body').on('tap', 'a', function () { document.location.href = this.href; });
 // 首页轮播图
 //获得slider插件对象
 var gallery = mui('.mui-slider');

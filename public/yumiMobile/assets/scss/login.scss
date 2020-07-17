@@ -1,0 +1,45 @@
+// 定义变量与值
+$whiteColor:#fff;
+$orangeColor:#f30;
+$blueColor:#069;
+
+.login-content{
+    position: relative;
+    top: 44px;
+    bottom: 50px;
+    #login-btn{
+        width: 100%;
+        margin: 40px 0;
+    }
+    .register-now{
+        display: block;
+        margin-top: 60px;
+        text-align: right;
+        font-size: 14px;
+        color: #006699;
+        padding-right: 10px;
+    }
+    .getCode{
+        position: absolute;
+        right: 10px;
+        top: 50%;
+        color: #fff;
+        font-size: 16px;
+        transform: translateY(-50%);
+        background-color: #007aff;
+        padding: 5px;
+        border-radius: 4px;
+    }
+    .register-btn{
+        width: 100%;
+        margin: 10px 0;
+    }
+    .login-now{
+        display: block;
+        margin-top: 20px;
+        text-align: right;
+        font-size: 14px;
+        color: #006699;
+        padding-right: 10px;
+    }
+}
